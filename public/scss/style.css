@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto");
+* {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
+
+table,
+thead,
+tr,
+th,
+td {
+  border: solid;
+  border-collapse: collapse;
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+a,
+button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 1040px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
+}
+.button {
+  padding: 0.8rem 1.8rem;
+  border: solid 0.1rem;
+}
+
+.button {
+  background-color: #dedede;
+  border-radius: 3rem;
+}
+.button:hover {
+  background-color: #c5c5c5;
+}
+
+.link {
+  color: #0074d9;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.writing_fields {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.writing_fields {
+  border: solid #ddd;
+}
+
+.error {
+  color: #ff4136;
+  font-weight: bold;
+}
+
+.error_404 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.error_404 h1 {
+  color: #ff4136;
+  font-size: 6rem;
+}
+.error_404 a {
+  color: #0074d9;
+  text-decoration: underline;
+}
+
+header nav {
+  color: #fff;
+  background-color: #aaa;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul {
+  display: flex;
+  gap: 6rem;
+}
+header nav ul a:hover {
+  text-decoration: underline;
+}
+header nav .user {
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  background: linear-gradient(90deg, red, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+footer {
+  flex: 1;
+}/*# sourceMappingURL=style.css.map */

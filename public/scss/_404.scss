@@ -1,0 +1,14 @@
+.error_404 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  h1 {
+    color: $error;
+    font-size: 6rem;
+  }
+  a {
+    color: $link;
+    text-decoration: underline;
+  }
+}
