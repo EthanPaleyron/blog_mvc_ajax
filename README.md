@@ -1,4 +1,4 @@
-# Name Project
+# Blog MVC AJAX
 
 <!-- ## Problems -->
 
@@ -37,6 +37,10 @@ cd .\public\
 ```
 
 - Launch a local server in the public folder:
+
+```shell
+php -S localhost:8000
+```
 
 ## Installing live-sass for SCSS
 
