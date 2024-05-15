@@ -5,16 +5,20 @@ ob_start();
 <h1>Blogs</h1>
 
 <div class="blogs">
-    <article>
-        <img src="" alt="">
-        <h2>title</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, repudiandae facilis, magnam nihil accusamus
-            velit, inventore quia neque aut ipsam nesciunt libero! Consequatur, aperiam fugit assumenda ipsum ducimus
-            itaque corrupti.</p>
-        <time datetime="15-05-2024">15/05/2024</time>
-        <a href="/update-blog/x/">Update</a>
-        <a href="/delete-blog/x/">Delete</a>
-    </article>
+    <?php foreach ($blogs as $blog) {
+        $date = new DateTime($blog->getdatetime_blog()); ?>
+        <article>
+            <img src="/files/<?= escape($blog->getfile_blog()) ?>" alt="<?= escape($blog->getfile_blog()) ?>">
+            <div>
+                <h2><?= escape($blog->gettitle_blog()) ?></h2>
+                <strong><?= escape($blog->getusername()) ?></strong>
+            </div>
+            <p><?= escape($blog->getdescription_blog()) ?></p>
+            <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>"><?= escape($date->format("Y/m/d")) ?></time>
+            <a href="/update-blog/<?= escape($blog->getid_blog()) ?>/<?= escape($blog->getid_user()) ?>/">Update</a>
+            <a href="/delete-blog/<?= escape($blog->getid_blog()) ?>/">Delete</a>
+        </article>
+    <?php } ?>
 </div>
 
 <?php

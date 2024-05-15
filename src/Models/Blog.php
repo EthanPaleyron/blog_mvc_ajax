@@ -5,9 +5,11 @@ class Blog
 {
     private int $id_blog;
     private int $id_user;
+    private string $username;
     private string $title_blog;
     private string $description_blog;
-    private string $date_blog;
+    private string $file_blog;
+    private string $datetime_blog;
     public function setid_blog($id_blog): void
     {
         $this->id_blog = $id_blog;
@@ -23,6 +25,14 @@ class Blog
     public function getid_user(): int
     {
         return $this->id_user;
+    }
+    public function setusername($username): void
+    {
+        $this->username = $username;
+    }
+    public function getusername(): string
+    {
+        return $this->username;
     }
     public function settitle_blog($title_blog): void
     {
@@ -40,12 +50,20 @@ class Blog
     {
         return $this->description_blog;
     }
-    public function setdate_blog($date_blog): void
+    public function setfile_blog($file_blog): void
     {
-        $this->date_blog = $date_blog;
+        $this->file_blog = $file_blog;
     }
-    public function getdate_blog(): string
+    public function getfile_blog(): string
     {
-        return $this->date_blog;
+        return $this->file_blog;
+    }
+    public function setdatetime_blog($datetime_blog): void
+    {
+        $this->datetime_blog = $datetime_blog;
+    }
+    public function getdatetime_blog(): string
+    {
+        return $this->datetime_blog;
     }
 }

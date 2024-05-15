@@ -28,7 +28,7 @@ $router->get('/create-new-blog/', "ViewController@showCreateBlog");
 $router->post('/storeBlog/', "BlogController@store");
 
 // - update blog
-$router->get('/update-blog/:id_blog/', "ViewController@showUpdateBlog");
+$router->get('/update-blog/:id_blog/:id_user/', "ViewController@showUpdateBlog");
 $router->post('/updateBlog/:id_blog/', "BlogController@update");
 
 // - deleet blog

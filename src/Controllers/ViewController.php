@@ -5,6 +5,7 @@ class ViewController extends Controller
 {
     public function showHome(): void
     {
+        $blogs = $this->blogManager->getAll();
         // redirection to the homepage
         require VIEWS . 'index.php';
     }
@@ -31,5 +32,14 @@ class ViewController extends Controller
             header("Location: /");
         }
         require VIEWS . 'App/createBlog.php';
+    }
+    public function showUpdateBlog(int $id_blog, int $id_user): void
+    {
+        // if the user id is not identical, he is redirected to the homepage
+        if ($_SESSION["user"]["id"] !== $id_user) {
+            header("Location: /");
+        }
+        $blog = $this->blogManager->getBlogWithId($id_blog);
+        require VIEWS . 'App/updateBlog.php';
     }
 }
