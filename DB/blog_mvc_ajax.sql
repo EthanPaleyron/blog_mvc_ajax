@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 15 mai 2024 à 07:42
+-- Généré le : mer. 15 mai 2024 à 08:43
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -33,11 +33,12 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `id_user` int NOT NULL,
   `title_blog` varchar(60) NOT NULL,
   `description_blog` varchar(850) NOT NULL,
-  `date_blog` datetime NOT NULL,
+  `file_blog` varchar(1000) NOT NULL,
+  `datetime_blog` datetime NOT NULL,
   PRIMARY KEY (`id_blog`),
   UNIQUE KEY `id_blog` (`id_blog`),
   KEY `blog_fk1` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -52,7 +53,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(120) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'Ethan', '$2y$10$eXkc2Tx/66iyNbV/cVErc.TSOneqkmjrA..Ljtxwo2cPrOxlqDZeu');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -26,6 +26,7 @@
             <?php } else { ?>
                 <ul>
                     <li><a href="/">Home</a></li>
+                    <li><a href="/create-new-blog/">Create new blog</a></li>
                     <li><a href="/logout/">Logout</a></li>
                 </ul>
                 <strong class="user">

@@ -22,4 +22,16 @@ $router->post('/register/', "UserController@register");
 // - logout
 $router->get('/logout/', "UserController@logout");
 
+// BLOG (CRUD)
+// - create new blog
+$router->get('/create-new-blog/', "ViewController@showCreateBlog");
+$router->post('/storeBlog/', "BlogController@store");
+
+// - update blog
+$router->get('/update-blog/:id_blog/', "ViewController@showUpdateBlog");
+$router->post('/updateBlog/:id_blog/', "BlogController@update");
+
+// - deleet blog
+$router->get('/delete-blog/:id_blog/', "BlogController@delete");
+
 $router->run();

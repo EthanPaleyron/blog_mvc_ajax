@@ -10,7 +10,7 @@ class ViewController extends Controller
     }
     public function showLogin(): void
     {
-        // if the user is not logged in, he is redirected to the homepage
+        // if the user is logged in, he is redirected to the homepage
         if (isset($_SESSION["user"]["username"])) {
             header("Location: /");
         }
@@ -18,10 +18,18 @@ class ViewController extends Controller
     }
     public function showRegister(): void
     {
-        // if the user is not logged in, he is redirected to the homepage
+        // if the user is logged in, he is redirected to the homepage
         if (isset($_SESSION["user"]["username"])) {
             header("Location: /");
         }
         require VIEWS . 'Auth/register.php';
+    }
+    public function showCreateBlog(): void
+    {
+        // if the user is not logged in, he is redirected to the homepage
+        if (!isset($_SESSION["user"]["username"])) {
+            header("Location: /");
+        }
+        require VIEWS . 'App/createBlog.php';
     }
 }

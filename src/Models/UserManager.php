@@ -7,19 +7,19 @@ class UserManager extends Manager
 {
     public function find($username) // get user by name
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE username = ?");
-        $stmt->execute(
+        $result = $this->bdd->prepare("SELECT * FROM user WHERE username = ?");
+        $result->execute(
             array(
                 $username
             )
         );
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Project\Models\User");
-        return $stmt->fetch();
+        $result->setFetchMode(\PDO::FETCH_CLASS, "Project\Models\User");
+        return $result->fetch();
     }
     public function store($password): void // add new user
     {
-        $stmt = $this->bdd->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
-        $stmt->execute(
+        $result = $this->bdd->prepare("INSERT INTO user (username, password) VALUES (?, ?)");
+        $result->execute(
             array(
                 $_POST["username"],
                 $password

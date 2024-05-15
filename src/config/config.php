@@ -5,6 +5,6 @@ const MODELS = '../src/Models/';
 const VIEWS = '../src/Views/';
 
 const HOST = '127.0.0.1';
-const DATABASE = 'blog_mvc';
+const DATABASE = 'blog_mvc_ajax';
 const USER = 'root';
 const PASSWORD = '';
