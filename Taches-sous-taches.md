@@ -22,7 +22,7 @@
      - Maquettage des formulaire de creation et modification de blog `25 m` temps réel `0 h 0 m` ✅
      - Style des formulaire de creation et modification de blog `15 m` temps réel `0 h 0 m`
 
-   - Backend `2 h 25 m` temps réel `0 h 0 m`
+   - Backend `2 h 25 m` temps réel `2 h 10 m` ✅
 
      - Authentification de l'utilisateur `0 m` temps réel `0 m` ✅
        - Creation du compte `0 m` temps réel `0 m` ✅
@@ -31,7 +31,7 @@
      - Creation des class php `10 m` temps réel `5 m` ✅
      - Creation d'un blog `15 m` temps réel `20 m` ✅
      - Affichage des blogs `15 m` temps réel `15 m` ✅
-     - Modification d'un blog `30 m` temps réel `0 h 0 m`
-     - Suppression d'un blog sous requette d'API interne `1 h 30 m` temps réel `0 h 0 m`
+     - Modification d'un blog `30 m` temps réel `45 m` ✅
+     - Suppression d'un blog sous requette d'API interne `1 h 30 m` temps réel `45 m` ✅
 
 1. Test untitaire `20 m` temps réel `0 m`

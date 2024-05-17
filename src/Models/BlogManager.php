@@ -48,4 +48,13 @@ class BlogManager extends Manager
             )
         );
     }
+    public function delete(int $id_blog): void // delete a blog with user id
+    {
+        $result = $this->bdd->prepare("DELETE FROM blog WHERE id_blog = ?");
+        $result->execute(
+            array(
+                $id_blog
+            )
+        );
+    }
 }

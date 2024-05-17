@@ -61,5 +61,6 @@ class BlogController extends Controller
     }
     public function delete(int $id_blog): void
     {
+        $this->blogManager->delete($id_blog);
     }
 }

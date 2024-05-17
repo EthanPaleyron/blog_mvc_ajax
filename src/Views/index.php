@@ -7,7 +7,7 @@ ob_start();
 <div class="blogs">
     <?php foreach ($blogs as $blog) {
         $date = new DateTime($blog->getdatetime_blog()); ?>
-        <article>
+        <article id="blog_<?= escape($blog->getid_blog()) ?>">
             <img src="/files/<?= escape($blog->getfile_blog()) ?>" alt="<?= escape($blog->getfile_blog()) ?>">
             <div>
                 <h2><?= escape($blog->gettitle_blog()) ?></h2>
@@ -16,7 +16,7 @@ ob_start();
             <p><?= escape($blog->getdescription_blog()) ?></p>
             <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>"><?= escape($date->format("Y/m/d")) ?></time>
             <a href="/update-blog/<?= escape($blog->getid_blog()) ?>/<?= escape($blog->getid_user()) ?>/">Update</a>
-            <a href="/delete-blog/<?= escape($blog->getid_blog()) ?>/">Delete</a>
+            <button class="ButtonsDelete" data-id="<?= escape($blog->getid_blog()) ?>">Delete</button>
         </article>
     <?php } ?>
 </div>
