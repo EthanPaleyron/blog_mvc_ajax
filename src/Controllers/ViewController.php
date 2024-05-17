@@ -35,6 +35,10 @@ class ViewController extends Controller
     }
     public function showUpdateBlog(int $id_blog, int $id_user): void
     {
+        // if the user is not logged in, he is redirected to the homepage
+        if (!isset($_SESSION["user"]["username"])) {
+            header("Location: /");
+        }
         // if the user id is not identical, he is redirected to the homepage
         if ($_SESSION["user"]["id"] !== $id_user) {
             header("Location: /");

@@ -34,4 +34,18 @@ class BlogManager extends Manager
             )
         );
     }
+    public function update(int $id_blog, string $file, string $datetime): void // update a blog with user id
+    {
+        $result = $this->bdd->prepare("UPDATE blog SET title_blog = ?, description_blog = ?, file_blog = ?, datetime_blog = ? WHERE id_blog = ? AND id_user = ?");
+        $result->execute(
+            array(
+                $_POST["title_blog"],
+                $_POST["description_blog"],
+                $file,
+                $datetime,
+                $id_blog,
+                $_SESSION["user"]["id"],
+            )
+        );
+    }
 }

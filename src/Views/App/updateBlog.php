@@ -4,7 +4,8 @@ ob_start();
 
 <h1>Update blog</h1>
 
-<form action="/updateBlog/<?= escape($blog->gettitle_blog()) ?>/" method="post" enctype="multipart/form-data">
+<form action="/updateBlog/<?= escape($blog->getid_blog()) ?>/" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="current_file_blog" value="<?= escape($blog->getfile_blog()) ?>">
     <div>
         <input type="text" name="title_blog" id="title_blog" placeholder="Blog title"
             value="<?= escape($blog->gettitle_blog()) ?>">
@@ -24,8 +25,8 @@ ob_start();
     <div>
         <?php $arrayDatetime = explode(" ", escape($blog->getdatetime_blog()));
         $date = $arrayDatetime[0] ?>
-        <input type="date" name="datetime_blog" id="datetime_blog" placeholder="Blog date" value="<?= $date ?>">
-        <label for="datetime_blog" class="error"><?= error("datetime_blog") ?></label>
+        <input type="date" name="date_blog" id="date_blog" placeholder="Blog date" value="<?= $date ?>">
+        <label for="date_blog" class="error"><?= error("date_blog") ?></label>
     </div>
     <button type="submit">Update</button>
 </form>
