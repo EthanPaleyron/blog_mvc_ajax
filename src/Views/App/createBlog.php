@@ -17,7 +17,7 @@ ob_start();
         <input type="file" name="file_blog" id="file_blog">
         <label for="file_blog" class="error"><?= error("file_blog") ?></label>
     </div>
-    <button type="submit">Create</button>
+    <button type="submit" class="button">Create</button>
 </form>
 
 <?php

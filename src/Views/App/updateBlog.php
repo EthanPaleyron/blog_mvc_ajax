@@ -28,7 +28,7 @@ ob_start();
         <input type="date" name="date_blog" id="date_blog" placeholder="Blog date" value="<?= $date ?>">
         <label for="date_blog" class="error"><?= error("date_blog") ?></label>
     </div>
-    <button type="submit">Update</button>
+    <button type="submit" class="button">Update</button>
 </form>
 
 <?php

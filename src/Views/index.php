@@ -15,8 +15,9 @@ ob_start();
             </div>
             <p><?= escape($blog->getdescription_blog()) ?></p>
             <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>"><?= escape($date->format("Y/m/d")) ?></time>
-            <a href="/update-blog/<?= escape($blog->getid_blog()) ?>/<?= escape($blog->getid_user()) ?>/">Update</a>
-            <button class="ButtonsDelete" data-id="<?= escape($blog->getid_blog()) ?>">Delete</button>
+            <a class="buttonsUpdate"
+                href="/update-blog/<?= escape($blog->getid_blog()) ?>/<?= escape($blog->getid_user()) ?>/">Update</a>
+            <button class="buttonsDelete" data-id="<?= escape($blog->getid_blog()) ?>">Delete</button>
         </article>
     <?php } ?>
 </div>

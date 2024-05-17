@@ -6,6 +6,20 @@ require '../src/config/config.php';
 require '../vendor/autoload.php';
 require SRC . 'helper.php';
 
+use ScssPhp\ScssPhp\Compiler;
+
+$scss = new Compiler();
+$scss->setImportPaths('./style/scss');
+
+try {
+    $cssOutput = $scss->compileFile('./style/scss/main.scss');
+} catch (\ScssPhp\ScssPhp\Exception\SassException $e) {
+    throw new Error($e);
+}
+
+file_put_contents('./style/main.css', $cssOutput->getCss());
+
+
 $router = new Project\Router($_SERVER["REQUEST_URI"]);
 // HOMEPAGE
 $router->get('/', "ViewController@showHome");

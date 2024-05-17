@@ -54,16 +54,30 @@ h3 {
 
 // 🔴Buttons
 %buttons {
+  font-size: 1rem;
   padding: 0.8rem 1.8rem;
   border: solid 0.1rem;
 }
 .button {
+  font-weight: bold;
   background-color: $primary;
   @extend %buttons;
   border-radius: 3rem;
   &:hover {
     background-color: darken-color($primary, 10%);
   }
+}
+.buttonsUpdate {
+  font-weight: bold;
+  background-color: $info;
+  @extend %buttons;
+  border-radius: 3rem;
+}
+.buttonsDelete {
+  font-weight: bold;
+  background-color: $error;
+  @extend %buttons;
+  border-radius: 3rem;
 }
 
 // 🔴Links

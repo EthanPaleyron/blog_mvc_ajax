@@ -2,7 +2,7 @@
 
 **_(tache terminé => ✅)_**
 
-**Temps global : `4 h 20 m` temps réel `0 h 0 m`**
+**Temps global : `4 h 20 m` temps réel `4 h 35 m`**
 
 1. Créer et lancée le project `5 m` temps réel `5 m` ✅
 
@@ -11,16 +11,16 @@
    - Mise en oeuvre de la MCD et MLD `10 m` temps réel `5 m` ✅
    - Mise en oeuvre du ficher SQL sur phpMyAdmin `15 m` temps réel `2 m` ✅
 
-1. Développement du site `3 h 45 m` temps réel `0 h 0 m`
+1. Développement du site `3 h 45 m` temps réel `3 h 15 m` ✅
 
-   - Frontend `1 h 5 m` temps réel `0 h 0 m`
+   - Frontend `55 m` temps réel `50 m` ✅
 
      - Maquettage de la page d'acceuil `15 m` temps réel `10 m` ✅
-     - Style de la page d'acceuil `10 m` temps réel `0 h 0 m`
+     - Style de la page d'acceuil `10 m` temps réel `10 m` ✅
      - Maquettage des pages d'authentification `0 m` temps réel `0 m` ✅
-     - Style des pages d'authentification `10 m` temps réel `0 h 0 m`
-     - Maquettage des formulaire de creation et modification de blog `25 m` temps réel `0 h 0 m` ✅
-     - Style des formulaire de creation et modification de blog `15 m` temps réel `0 h 0 m`
+     - Style des pages d'authentification `0 m` temps réel `0 m` ✅
+     - Maquettage des formulaire de creation et modification de blog `25 m` temps réel `25 m` ✅
+     - Style des formulaire de creation et modification de blog `15 m` temps réel `5 m` ✅
 
    - Backend `2 h 25 m` temps réel `2 h 10 m` ✅
 
@@ -34,4 +34,4 @@
      - Modification d'un blog `30 m` temps réel `45 m` ✅
      - Suppression d'un blog sous requette d'API interne `1 h 30 m` temps réel `45 m` ✅
 
-1. Test untitaire `20 m` temps réel `0 m`
+1. Test untitaire `20 m` temps réel `20 m` ✅

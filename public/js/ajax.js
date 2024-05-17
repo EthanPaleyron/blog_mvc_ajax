@@ -1,4 +1,4 @@
-const ButtonsDelete = document.querySelectorAll(".ButtonsDelete");
+const ButtonsDelete = document.querySelectorAll(".buttonsDelete");
 ButtonsDelete.forEach((ButtonDelete) => {
   ButtonDelete.addEventListener("click", (e) => {
     // dont submit the form

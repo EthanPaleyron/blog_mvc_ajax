@@ -11,10 +11,20 @@ body {
 }
 
 h1 {
-  @extend %absolute-center;
-  background: gradient(red, blue, 90deg);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin: 2rem auto;
+}
+
+.blogs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  article {
+    img {
+      width: 25rem;
+      height: 15rem;
+    }
+  }
 }
 
 footer {
