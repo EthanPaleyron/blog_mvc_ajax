@@ -6,65 +6,105 @@
   box-sizing: border-box;
   background-repeat: no-repeat;
 }
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
+
 img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-width: 100%;
   user-drag: none;
   -webkit-user-drag: none;
 }
-ul, ol {
+
+ul,
+ol {
   list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after, q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "";
   content: none;
 }
+
 a {
   text-decoration: none;
   display: inline-block;
 }
+
 button {
   border: none;
   background-color: inherit;
 }
-table, thead, tr, th, td {
+
+table,
+thead,
+tr,
+th,
+td {
   border: solid;
   border-collapse: collapse;
 }
+
 textarea {
   resize: none;
 }
-input:focus, textarea:focus {
+
+input:focus,
+textarea:focus {
   outline: none;
 }
-a, button {
-  user-select: none;
+
+a,
+button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
+
 body {
   font-family: "Roboto", sans-serif;
   color: #333;
   font-size: 1rem;
   font-weight: 600;
 }
+
 h1 {
   font-size: 3rem;
   font-weight: 700;
 }
+
 h2 {
   font-size: 2rem;
   font-weight: 700;
 }
+
 h3 {
   font-size: 1.1rem;
   font-weight: 700;
 }
+
 @media (min-width: 768px) {
   h1 {
     font-size: 3.5rem;
@@ -78,11 +118,12 @@ h3 {
     font-size: 2.6rem;
   }
 }
-.button, .buttonsUpdate, .buttonsDelete {
+.buttonsDelete, .buttonsUpdate, .button {
   font-size: 1rem;
   padding: 0.8rem 1.8rem;
   border: solid 0.1rem;
 }
+
 .button {
   font-weight: bold;
   background-color: #dedede;
@@ -91,33 +132,41 @@ h3 {
 .button:hover {
   background-color: #c5c5c5;
 }
+
 .buttonsUpdate {
   font-weight: bold;
   background-color: #ffdc00;
   border-radius: 3rem;
 }
+
 .buttonsDelete {
   font-weight: bold;
   background-color: #ff4136;
   border-radius: 3rem;
 }
+
 .link {
   color: #0074d9;
 }
+
 .link:hover {
   text-decoration: underline;
 }
+
 .writing_fields {
   padding: 1rem;
   border-radius: 0.5rem;
 }
+
 .writing_fields {
   border: solid #ddd;
 }
+
 .error {
   color: #ff4136;
   font-weight: bold;
 }
+
 .error_404 {
   text-align: center;
   display: flex;
@@ -132,6 +181,7 @@ h3 {
   color: #0074d9;
   text-decoration: underline;
 }
+
 header nav {
   color: #fff;
   background-color: #aaa;
@@ -151,14 +201,17 @@ header nav .user {
   font-size: 1.2rem;
   text-decoration: underline;
 }
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
 h1 {
   margin: 2rem auto;
 }
+
 .blogs {
   display: flex;
   justify-content: center;
@@ -169,6 +222,7 @@ h1 {
   width: 25rem;
   height: 15rem;
 }
+
 footer {
   flex: 1;
-}
+}/*# sourceMappingURL=main.css.map */

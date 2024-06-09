@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 15 mai 2024 à 08:43
--- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 09, 2024 at 11:37 AM
+-- Server version: 8.2.0
+-- PHP Version: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `blog_mvc_ajax`
+-- Database: `blog_mvc_ajax`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `blog`
+-- Table structure for table `blog`
 --
 
 DROP TABLE IF EXISTS `blog`;
@@ -38,12 +38,53 @@ CREATE TABLE IF NOT EXISTS `blog` (
   PRIMARY KEY (`id_blog`),
   UNIQUE KEY `id_blog` (`id_blog`),
   KEY `blog_fk1` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id_blog`, `id_user`, `title_blog`, `description_blog`, `file_blog`, `datetime_blog`) VALUES
+(2, 1, 'hahahaa', 'lol mdr', '5972160359snowy-mountain-range-sdug50t137wxopzg.jpg', '2024-06-09 11:22:58');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id_comment` int NOT NULL AUTO_INCREMENT,
+  `id_blog` int NOT NULL,
+  `id_user` int NOT NULL,
+  `content_commentaire` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_comment`),
+  KEY `id_blog` (`id_blog`),
+  KEY `id_user` (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub-comment`
+--
+
+DROP TABLE IF EXISTS `sub-comment`;
+CREATE TABLE IF NOT EXISTS `sub-comment` (
+  `id_sub-comment` int NOT NULL AUTO_INCREMENT,
+  `id_comment` int NOT NULL,
+  `id_user` int NOT NULL,
+  `content_sub-comment` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_sub-comment`),
+  KEY `id_comment` (`id_comment`),
+  KEY `id_user` (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -56,11 +97,35 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
 (1, 'Ethan', '$2y$10$eXkc2Tx/66iyNbV/cVErc.TSOneqkmjrA..Ljtxwo2cPrOxlqDZeu');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_blog`) REFERENCES `blog` (`id_blog`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `sub-comment`
+--
+ALTER TABLE `sub-comment`
+  ADD CONSTRAINT `sub-comment_ibfk_1` FOREIGN KEY (`id_comment`) REFERENCES `comment` (`id_comment`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `sub-comment_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `blog` (`id_user`) ON DELETE CASCADE ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
