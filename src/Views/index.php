@@ -15,15 +15,18 @@ ob_start();
             </div>
             <p><?= escape($blog->getdescription_blog()) ?></p>
             <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>"><?= escape($date->format("Y/m/d")) ?></time>
+
             <a class="buttonsUpdate"
                 href="/update-blog/<?= escape($blog->getid_blog()) ?>/<?= escape($blog->getid_user()) ?>/">Update</a>
             <button class="buttonsDelete" data-id="<?= escape($blog->getid_blog()) ?>">Delete</button>
-            <form id="newComment" data-blog="<?= escape($blog->getid_blog()) ?>"
+
+            <form class="newComment" data-blog="<?= escape($blog->getid_blog()) ?>"
                 data-username="<?= $_SESSION["user"]["username"] ?>">
-                <input type="text" name="content_comment" id="content_comment">
+                <input type="text" name="content_comment" id="content_comment<?= escape($blog->getid_blog()) ?>">
                 <button type="submit" class="button">Comment</button>
             </form>
-            <div class="comments">
+
+            <div id="comments<?= escape($blog->getid_blog()) ?>">
                 <?php foreach ($blog->getComments() as $comment) {
                     $date = new DateTime($comment->getdatetime_comment()); ?>
                     <div class="comment">
@@ -32,19 +35,33 @@ ob_start();
                         <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>">
                             <?= escape($date->format("Y/m/d")) ?>
                         </time>
-                        <form action="/storeSubComment/<?= escape($comment->getid_comment()) ?>/" method="post"
-                            enctype="multipart/form-data">
-                            <input type="text" name="content_sub_comment" id="content_sub_comment">
+                        <form class="newSubComment" data-comment="<?= escape($comment->getid_comment()) ?>"
+                            data-username="<?= $_SESSION["user"]["username"] ?>">
+                            <input type="text" name="content_sub_comment"
+                                id="content_sub_comment<?= escape($comment->getid_comment()) ?>">
                             <button type="submit" class="button">Comment</button>
                         </form>
+
+                        <div id="sub_comments<?= escape($comment->getid_comment()) ?>">
+                            <?php foreach ($comment->getSubComments() as $subComment) {
+                                $date = new DateTime($subComment->getdatetime_sub_comment()); ?>
+                                <strong><?= escape($subComment->getusername()) ?></strong>
+                                <p><?= escape($subComment->getcontent_sub_comment()) ?></p>
+                                <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>">
+                                    <?= escape($date->format("Y/m/d")) ?>
+                                </time>
+                            <?php } ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
         </article>
     <?php } ?>
 </div>
+
 <script type="module" src="/js/deleteBlogAjax.js"></script>
 <script type="module" src="/js/createCommentAjax.js"></script>
+<script type="module" src="/js/createSubCommentAjax.js"></script>
 
 <?php
 $content = ob_get_clean();

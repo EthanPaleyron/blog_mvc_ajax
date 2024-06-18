@@ -13,11 +13,11 @@ class CommentManager extends Manager
     }
     public function store(int $id_blog): void // create a new comment with id blog
     {
-        $result = $this->bdd->prepare("INSERT INTO comment (id_user, id_blog, datetime_comment, content_comment) VALUES (?, ?, NOW(), ?)");
+        $result = $this->bdd->prepare("INSERT INTO comment (id_blog, id_user, datetime_comment, content_comment) VALUES (?, ?, NOW(), ?)");
         $result->execute(
             array(
-                $_SESSION["user"]["id"],
                 $id_blog,
+                $_SESSION["user"]["id"],
                 $_POST["content_comment"],
             )
         );

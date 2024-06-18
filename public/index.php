@@ -34,18 +34,12 @@ $router->post('/updateBlog/:id_blog/', "BlogController@update");
 // - delete blog
 $router->get('/delete-blog/:id_blog/', "BlogController@delete");
 
-// COMMENT (CRD)
+// COMMENT
 // - create blog
 $router->post('/storeComment/:id_blog/', "CommentController@store");
 
-// - delete blog
-$router->get('/deleteComment/:id_blog/', "CommentController@delete");
-
-// SUB-COMMENT (CRD)
+// SUB-COMMENT
 // - create blog
 $router->post('/storeSubComment/:id_comment/', "SubCommentController@store");
-
-// - delete blog
-$router->get('/deleteSubComment/:id_comment/', "SubCommentController@delete");
 
 $router->run();

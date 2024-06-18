@@ -9,6 +9,7 @@ class Comment
     private string $username;
     private string $datetime_comment;
     private string $content_comment;
+    private array $sub_comments;
     public function setid_comment($id_comment): void
     {
         $this->id_comment = $id_comment;
@@ -56,5 +57,16 @@ class Comment
     public function getcontent_comment(): string
     {
         return $this->content_comment;
+    }
+    public function getSubComments(): array
+    {
+        if (isset($this->sub_comments)) {
+            return $this->sub_comments;
+        } else {
+            // If the sub-comments are not in the sub-comments table, I'll get them back.
+            $manager = new SubCommentManager();
+            $this->sub_comments = $manager->getSubCommentsFormBlog($this->id_comment);
+            return $this->sub_comments;
+        }
     }
 }

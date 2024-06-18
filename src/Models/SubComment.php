@@ -1,11 +1,12 @@
 <?php
 namespace Project\Models;
 
-class Comment
+class SubComment
 {
     private int $id_sub_comment;
     private int $id_comment;
     private int $id_user;
+    private string $username;
     private string $datetime_sub_comment;
     private string $content_sub_comment;
     public function setid_sub_comment($id_sub_comment): void
@@ -31,6 +32,14 @@ class Comment
     public function getid_user(): int
     {
         return $this->id_user;
+    }
+    public function setusername($username): void
+    {
+        $this->username = $username;
+    }
+    public function getusername(): string
+    {
+        return $this->username;
     }
     public function setdatetime_sub_comment($datetime_sub_comment): void
     {
