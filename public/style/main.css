@@ -22,8 +22,7 @@ section {
 }
 
 img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   max-width: 100%;
   user-drag: none;
   -webkit-user-drag: none;
@@ -77,9 +76,7 @@ textarea:focus {
 
 a,
 button {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   cursor: pointer;
 }
 
@@ -222,7 +219,13 @@ h1 {
   width: 25rem;
   height: 15rem;
 }
+.blogs article .comment {
+  margin: 1rem 0;
+  background-color: #aaa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
 
 footer {
   flex: 1;
-}/*# sourceMappingURL=main.css.map */
+}

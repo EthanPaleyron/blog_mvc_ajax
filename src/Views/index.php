@@ -18,9 +18,33 @@ ob_start();
             <a class="buttonsUpdate"
                 href="/update-blog/<?= escape($blog->getid_blog()) ?>/<?= escape($blog->getid_user()) ?>/">Update</a>
             <button class="buttonsDelete" data-id="<?= escape($blog->getid_blog()) ?>">Delete</button>
+            <form id="newComment" data-blog="<?= escape($blog->getid_blog()) ?>"
+                data-username="<?= $_SESSION["user"]["username"] ?>">
+                <input type="text" name="content_comment" id="content_comment">
+                <button type="submit" class="button">Comment</button>
+            </form>
+            <div class="comments">
+                <?php foreach ($blog->getComments() as $comment) {
+                    $date = new DateTime($comment->getdatetime_comment()); ?>
+                    <div class="comment">
+                        <strong><?= escape($comment->getusername()) ?></strong>
+                        <p><?= escape($comment->getcontent_comment()) ?></p>
+                        <time datetime="<?= escape($date->format("Y-m-d h:i:s")) ?>">
+                            <?= escape($date->format("Y/m/d")) ?>
+                        </time>
+                        <form action="/storeSubComment/<?= escape($comment->getid_comment()) ?>/" method="post"
+                            enctype="multipart/form-data">
+                            <input type="text" name="content_sub_comment" id="content_sub_comment">
+                            <button type="submit" class="button">Comment</button>
+                        </form>
+                    </div>
+                <?php } ?>
+            </div>
         </article>
     <?php } ?>
 </div>
+<script type="module" src="/js/deleteBlogAjax.js"></script>
+<script type="module" src="/js/createCommentAjax.js"></script>
 
 <?php
 $content = ob_get_clean();

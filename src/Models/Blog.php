@@ -10,6 +10,7 @@ class Blog
     private string $description_blog;
     private string $file_blog;
     private string $datetime_blog;
+    private array $comments;
     public function setid_blog($id_blog): void
     {
         $this->id_blog = $id_blog;
@@ -65,5 +66,16 @@ class Blog
     public function getdatetime_blog(): string
     {
         return $this->datetime_blog;
+    }
+    public function getComments(): array
+    {
+        if (isset($this->comments)) {
+            return $this->comments;
+        } else {
+            // If the comments are not in the comments table, I'll get them back.
+            $manager = new CommentManager();
+            $this->comments = $manager->getCommentsFormBlog($this->id_blog);
+            return $this->comments;
+        }
     }
 }

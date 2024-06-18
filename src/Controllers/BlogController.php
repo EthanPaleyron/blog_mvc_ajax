@@ -33,7 +33,6 @@ class BlogController extends Controller
             "description_blog" => ["required", "max:850"],
             "date_blog" => ["required", "max:850", "date"],
         ]);
-        var_dump($_POST);
         $_SESSION['old'] = $_POST;
         if (!$this->validator->errors() && isset($_FILES["file_blog"])) {
             if ($_FILES["file_blog"]["name"] !== "") {

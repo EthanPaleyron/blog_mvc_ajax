@@ -33,5 +33,7 @@
      - Affichage des blogs `15 m` temps réel `15 m` ✅
      - Modification d'un blog `30 m` temps réel `45 m` ✅
      - Suppression d'un blog sous requette d'API interne `1 h 30 m` temps réel `45 m` ✅
+     - Creation d'un commentaire sous une requette d'API interne `1 h` temps réel `0 m` ✅
+     - Creation d'un sous commentaire sous une requette d'API interne `1 h` temps réel `0 m`
 
 1. Test untitaire `20 m` temps réel `20 m` ✅

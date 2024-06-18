@@ -38,7 +38,6 @@
     <main>
         <?php echo $content; ?>
     </main>
-    <script type="module" src="/js/ajax.js"></script>
 </body>
 
 </html>
