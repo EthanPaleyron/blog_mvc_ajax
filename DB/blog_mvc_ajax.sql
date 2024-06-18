@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 18 juin 2024 à 09:35
+-- Généré le : mar. 18 juin 2024 à 15:09
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -38,14 +38,15 @@ CREATE TABLE IF NOT EXISTS `blog` (
   PRIMARY KEY (`id_blog`),
   UNIQUE KEY `id_blog` (`id_blog`),
   KEY `blog_fk1` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `blog`
 --
 
 INSERT INTO `blog` (`id_blog`, `id_user`, `title_blog`, `description_blog`, `file_blog`, `datetime_blog`) VALUES
-(2, 1, 'titleee', 'bfbrezvrev', '48449973811708957115-clientele-cible.jpg', '2024-06-18 07:18:42');
+(2, 1, 'cible', 'description', '48449973811708957115-clientele-cible.jpg', '2024-06-18 13:47:05'),
+(4, 1, 'Javascript', 'use AJAX in my project', '4662195979e36ec678-7984-4cdd-8e4c-a3932772ff8e.gif', '2024-06-18 13:51:00');
 
 -- --------------------------------------------------------
 
@@ -63,39 +64,44 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`id_comment`),
   KEY `id_user` (`id_user`),
   KEY `id_blog` (`id_blog`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `comment`
 --
 
 INSERT INTO `comment` (`id_comment`, `id_blog`, `id_user`, `datetime_comment`, `content_comment`) VALUES
-(11, 2, 1, '2024-06-18 11:12:08', 'hello'),
-(12, 2, 1, '2024-06-18 11:13:27', 'comment ca va'),
-(13, 2, 1, '2024-06-18 11:14:05', 'main non'),
-(14, 2, 1, '2024-06-18 11:14:15', 'quoi'),
-(15, 2, 1, '2024-06-18 11:17:02', 'lol'),
-(16, 2, 1, '2024-06-18 11:17:22', 'hel'),
-(17, 2, 1, '2024-06-18 11:19:54', 'hell'),
-(18, 2, 1, '2024-06-18 11:21:27', 'mais lol');
+(59, 2, 1, '2024-06-18 15:03:40', 'joli cible'),
+(60, 4, 1, '2024-06-18 15:03:51', 'wow'),
+(73, 2, 1, '2024-06-18 15:08:26', 'pourquoi elle est bugée'),
+(74, 4, 1, '2024-06-18 15:08:50', 'c\'est galère le ajax');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sub-comment`
+-- Structure de la table `sub_comment`
 --
 
-DROP TABLE IF EXISTS `sub-comment`;
-CREATE TABLE IF NOT EXISTS `sub-comment` (
+DROP TABLE IF EXISTS `sub_comment`;
+CREATE TABLE IF NOT EXISTS `sub_comment` (
   `id_sub_comment` int NOT NULL AUTO_INCREMENT,
   `id_comment` int NOT NULL,
   `id_user` int NOT NULL,
   `datetime_sub_comment` datetime NOT NULL,
-  `content_sub_content` varchar(250) NOT NULL,
+  `content_sub_comment` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_sub_comment`),
   KEY `id_comment` (`id_comment`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `sub_comment`
+--
+
+INSERT INTO `sub_comment` (`id_sub_comment`, `id_comment`, `id_user`, `datetime_sub_comment`, `content_sub_comment`) VALUES
+(31, 59, 1, '2024-06-18 15:07:40', 'je confirme !'),
+(32, 59, 1, '2024-06-18 15:07:54', 'totalement d\'accord'),
+(33, 74, 1, '2024-06-18 15:09:08', 'utilise le fetch');
 
 -- --------------------------------------------------------
 
@@ -137,11 +143,11 @@ ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
--- Contraintes pour la table `sub-comment`
+-- Contraintes pour la table `sub_comment`
 --
-ALTER TABLE `sub-comment`
-  ADD CONSTRAINT `sub-comment_ibfk_1` FOREIGN KEY (`id_comment`) REFERENCES `comment` (`id_comment`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  ADD CONSTRAINT `sub-comment_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE `sub_comment`
+  ADD CONSTRAINT `sub_comment_ibfk_1` FOREIGN KEY (`id_comment`) REFERENCES `comment` (`id_comment`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `sub_comment_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
