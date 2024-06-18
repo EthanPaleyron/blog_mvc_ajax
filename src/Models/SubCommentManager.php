@@ -11,13 +11,14 @@ class SubCommentManager extends Manager
         $result->execute(array($id_comment));
         return $result->fetchAll(\PDO::FETCH_CLASS, "Project\Models\SubComment");
     }
-    public function store(int $id_comment): void // create a new sub-comment with id comment
+    public function store(int $id_comment, string $datetime): void // create a new sub-comment with id comment
     {
-        $result = $this->bdd->prepare("INSERT INTO sub_comment (id_comment, id_user, datetime_sub_comment, content_sub_comment) VALUES (?, ?, NOW(), ?)");
+        $result = $this->bdd->prepare("INSERT INTO sub_comment (id_comment, id_user, datetime_sub_comment, content_sub_comment) VALUES (?, ?, ?, ?)");
         $result->execute(
             array(
                 $id_comment,
                 $_SESSION["user"]["id"],
+                $datetime,
                 $_POST["content_sub_comment"],
             )
         );

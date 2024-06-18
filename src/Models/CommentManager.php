@@ -11,13 +11,14 @@ class CommentManager extends Manager
         $result->execute(array($id_blog));
         return $result->fetchAll(\PDO::FETCH_CLASS, "Project\Models\Comment");
     }
-    public function store(int $id_blog): void // create a new comment with id blog
+    public function store(int $id_blog, string $datetime): void // create a new comment with id blog
     {
-        $result = $this->bdd->prepare("INSERT INTO comment (id_blog, id_user, datetime_comment, content_comment) VALUES (?, ?, NOW(), ?)");
+        $result = $this->bdd->prepare("INSERT INTO comment (id_blog, id_user, datetime_comment, content_comment) VALUES (?, ?, ?, ?)");
         $result->execute(
             array(
                 $id_blog,
                 $_SESSION["user"]["id"],
+                $datetime,
                 $_POST["content_comment"],
             )
         );

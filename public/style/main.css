@@ -206,6 +206,7 @@ body {
 }
 
 h1 {
+  text-align: center;
   margin: 2rem auto;
 }
 
@@ -214,14 +215,28 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 2rem;
 }
-.blogs article img {
+.blogs article {
+  display: flex;
+  max-height: 25rem;
+}
+.blogs article .contents_blog img {
   width: 25rem;
   height: 15rem;
 }
-.blogs article .comment {
+.blogs article .comments_blog {
+  overflow: hidden scroll;
+}
+.blogs article .comments_blog .comment {
   margin: 1rem 0;
   background-color: #aaa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.blogs article .comments_blog .comment .sub_comment {
+  margin: 1rem 0;
+  background-color: #dedede;
   padding: 1rem;
   border-radius: 0.5rem;
 }
