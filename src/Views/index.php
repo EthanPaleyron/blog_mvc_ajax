@@ -1,5 +1,10 @@
 <?php
 ob_start();
+
+$user = "";
+if (isset($_SESSION["user"]["username"])) {
+    $user = $_SESSION["user"]["username"];
+}
 ?>
 
 <h1>Blogs</h1>
@@ -23,8 +28,7 @@ ob_start();
             </div>
 
             <div class="comments_blog">
-                <form class="newComment" data-blog="<?= escape($blog->getid_blog()) ?>"
-                    data-username="<?= $_SESSION["user"]["username"] ?>">
+                <form class="newComment" data-blog="<?= escape($blog->getid_blog()) ?>" data-username="<?= $user ?>">
                     <input type="text" name="content_comment" id="content_comment<?= escape($blog->getid_blog()) ?>">
                     <button type="submit" class="button">Comment</button>
                 </form>
@@ -39,7 +43,7 @@ ob_start();
                                 <?= escape($date->format("Y/m/d")) ?>
                             </time>
                             <form class="newSubComment" data-comment="<?= escape($comment->getid_comment()) ?>"
-                                data-username="<?= $_SESSION["user"]["username"] ?>">
+                                data-username="<?= $user ?>">
                                 <input type="text" name="content_sub_comment"
                                     id="content_sub_comment<?= escape($comment->getid_comment()) ?>">
                                 <button type="submit" class="button">Comment</button>
